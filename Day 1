@@ -1,0 +1,48 @@
+CREATE TABLE students(s_id INT,name VARCHAR(50),age INT,gender VARCHAR(10),branch VARCHAR(50));
+INSERT INTO students (s_id, name, age, gender,branch)
+VALUES (1, 'John Smith', 20, 'Male', 'Computer Science'),
+       (2, 'Emily Johnson', 19, 'Female', 'Mathematics'),
+       (3, 'Michael Davis', 21, 'Male', 'Physics'),
+       (4, 'Sophia Miller', 20, 'Female', 'Biology'),
+       (5, 'Daniel Wilson', 22, 'Male', 'Chemistry'),
+       (6, 'Olivia Anderson', 19, 'Female', 'English'),
+       (7, 'James Thompson', 20, 'Male', 'History'),
+       (8, 'Ava Martinez', 21, 'Female', 'Business'),
+       (9, 'Alexander Clark', 19, 'Male', 'Economics'),
+       (10, 'Mia Taylor', 20, 'Female', 'Psychology'),
+       (11, 'Benjamin Rodriguez', 21, 'Male', 'Sociology'),
+       (12, 'Charlotte Hernandez', 19, 'Female', 'Political Science');
+select count(branch) from students where branch='Computer Science';
+select sum(age) from students;
+select avg(age) from students;
+
+CREATE TABLE Students (
+  student_id INT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  gender VARCHAR(10),
+  major VARCHAR(50)
+);
+INSERT INTO Students (student_id, name, age, gender, major)
+VALUES 
+  (1, 'John Smith', 20, 'Male', 'Computer Science'),
+  (2, 'Emily Johnson', 19, 'Female', 'Mathematics'),
+  (3, 'Michael Davis', 21, 'Male', 'Physics'),
+  (4, 'Sophia Miller', 20, 'Female', 'Biology'),
+  (5, 'Daniel Wilson', 22, 'Male', 'Chemistry');
+CREATE TABLE Courses (
+  course_id INT PRIMARY KEY,
+  course_name VARCHAR(50),
+  instructor VARCHAR(50)
+);
+INSERT INTO Courses (course_id, course_name, instructor)
+VALUES 
+  (1, 'Database', 'Johnson'),
+  (2, 'Calculus', 'Thompson'),
+  (3, 'Physics', 'Davis'),
+  (4, 'Biology', 'Miller'),
+  (5, 'Chemistry', 'Wilson');
+select Students.name,Courses.course_name from Students inner join Courses on Students.major=Courses.course_name; 
+select Students.name,Courses.course_name from Students left join Courses on Students.major=Courses.course_name; 
+select Students.name,Courses.course_name from Students right join Courses on Students.major=Courses.course_name; 
+SELECT Students.name, Courses.course_name FROM Students LEFT JOIN Courses ON Students.major = Courses.course_name UNION SELECT Students.name, Courses.course_name FROM Students RIGHT JOIN Courses ON Students.major = Courses.course_name;
