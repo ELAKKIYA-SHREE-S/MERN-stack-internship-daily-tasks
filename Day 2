@@ -1,0 +1,39 @@
+-- basic commands
+use secedb
+db.sece2.insertMany([
+  { number: 1, color: "red" },
+  { number: 2, color: "blue" },
+  { number: 3, color: "green" },
+  { number: 4, color: "yellow" },
+  { number: 5, color: "purple" },
+  { number: 6, color: "orange" },
+  { number: 7, color: "pink" },
+  { number: 8, color: "black" },
+  { number: 9, color: "white" },
+  { number: 10, color: "gray" }
+])
+show databases
+show collections
+db.sece2.find()
+db.sece2.find({ color: "blue" })
+db.sece2.find({ number: 3 })
+db.sece2.insertOne({ number: 11, color: "brown" })
+db.sece2.insertMany([
+  { number: 12, color: "cyan" },
+  { number: 13, color: "magenta" }
+])
+db.sece2.updateOne({number:5},{$set:{color:"red"}})
+db.sece2.updateOne({ number: 1 }, { $set: { color: "yellow" } })
+db.sece2.updateMany({ color: "red" }, { $set: { color: "green" } })
+db.sece2.find().sort({ number: 1 })
+db.sece2.find().sort({ number: -1 })
+
+-- backup
+mongodump --db sece --out cars
+
+-- restore
+mongorestore --db sece cars
+
+-- sort and filter
+db.sece2.find({ color: "red" })
+db.sece2.find({ color: "red" }).sort({number:-1})
