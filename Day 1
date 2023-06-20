@@ -1,3 +1,27 @@
+-- theatre table
+CREATE TABLE theatre(name varchar(20),location varchar(20),sname varchar(20),stime time);
+INSERT INTO theatre VALUES ('sathyam cinemas','karur','por thozil','7:00');
+INSERT INTO theatre VALUES ('indian film zone','odc','takkar','10:00');
+
+SELECT * FROM theatre;
+-- customer table
+CREATE TABLE customer(name varchar(20),location varchar(20),ticketno varchar(5));
+INSERT INTO customer VALUES ('dhatcha','karur','5A');
+INSERT INTO customer VALUES ('dhabo','odc','3B');
+
+alter table customer add column age int;
+
+update customer set location='coimbatore' where name='dhatcha';
+delete from theatre where location='odc';
+INSERT INTO theatre VALUES ('indian film zone','odc','takkar','10:00');
+ALTER TABLE customer DROP COLUMN age;
+INSERT INTO customer VALUES ('dhivya','coimbatore','9D');
+
+SELECT * FROM customer order by name;
+SELECT * FROM customer order by name desc;
+select count(name) from theatre;
+select count(name) from customer;
+
 CREATE TABLE students(s_id INT,name VARCHAR(50),age INT,gender VARCHAR(10),branch VARCHAR(50));
 INSERT INTO students (s_id, name, age, gender,branch)
 VALUES (1, 'John Smith', 20, 'Male', 'Computer Science'),
