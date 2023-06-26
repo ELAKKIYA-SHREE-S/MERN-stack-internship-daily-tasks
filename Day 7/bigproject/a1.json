@@ -1,0 +1,16 @@
+{
+    "name":"elaks",
+    "age":20,
+    "address":"110/b,kk nagar,oddanchatram",
+    "pincode":"624619",
+    "college":"sri eshwar",
+    "place":"coimbatore",
+    "phoneno":"1234567890",
+    "course":{
+        "cname":"BE",
+        "dept":{
+            "dname":"cse",
+            "section":"A"
+        }
+    }
+}
